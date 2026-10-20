@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <utility>
 using namespace std;
-
+setlocale(LC_ALL, "Russian");
 bool Book::isValidData(string title, string author, int year, int pages) const
 {
     if (title.empty() || author.empty())
@@ -25,11 +25,11 @@ Book::Book(string title, string author, int year, int pages)
     : title_(title), author_(author), year_(year), pages_(pages), is_available_(true) {
     if (!isValidData(title_, author_, year_, pages_))
     {
-        throw invalid_argument("Некорректные данные книги");
+        throw invalid_argument("ГЌГҐГЄГ®Г°Г°ГҐГЄГІГ­Г»ГҐ Г¤Г Г­Г­Г»ГҐ ГЄГ­ГЁГЈГЁ");
     }
 }
 
-//Геттеры
+//ГѓГҐГІГІГҐГ°Г»
 string Book::title() const
 {
     return title_;
@@ -55,11 +55,11 @@ bool Book::isAvailable() const
     return is_available_;
 }
 
-//Сеттеры
+//Г‘ГҐГІГІГҐГ°Г»
 void Book::updateTitle(string new_title) {
     if (!isValidData(new_title, author_, year_, pages_))
     {
-        throw invalid_argument("Название не может быть пустым");
+        throw invalid_argument("ГЌГ Г§ГўГ Г­ГЁГҐ Г­ГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЇГіГ±ГІГ»Г¬");
     }
     title_ = new_title;
 }
@@ -67,7 +67,7 @@ void Book::updateTitle(string new_title) {
 void Book::updateAuthor(string new_author) {
     if (!isValidData(title_, new_author, year_, pages_))
     {
-        throw invalid_argument("Автор не может быть пустым");
+        throw invalid_argument("ГЂГўГІГ®Г° Г­ГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЇГіГ±ГІГ»Г¬");
     }
     author_ = new_author;
 }
@@ -75,7 +75,7 @@ void Book::updateAuthor(string new_author) {
 void Book::updateYear(int new_year) {
     if (!isValidData(title_, author_, new_year, pages_))
     {
-        throw invalid_argument("Год должен быть от 1450 до 2025");
+        throw invalid_argument("ГѓГ®Г¤ Г¤Г®Г«Г¦ГҐГ­ ГЎГ»ГІГј Г®ГІ 1450 Г¤Г® 2025");
     }
     year_ = new_year;
 }
@@ -83,7 +83,7 @@ void Book::updateYear(int new_year) {
 void Book::updatePages(int new_pages) {
     if (!isValidData(title_, author_, year_, new_pages))
     {
-        throw invalid_argument("Страниц должно быть больше 0");
+        throw invalid_argument("Г‘ГІГ°Г Г­ГЁГ¶ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЎГ®Г«ГјГёГҐ 0");
     }
     pages_ = new_pages;
 }
@@ -100,5 +100,5 @@ void Book::returnBook()
 
 string Book::description() const
 {
-    return title_ + " от " + author_ + " (" + to_string(year_) + ")";
+    return title_ + " Г®ГІ " + author_ + " (" + to_string(year_) + ")";
 }
